@@ -1,0 +1,5 @@
+.bgContainer {
+  background-image: url(https://assets.ccbp.in/frontend/react-js/match-game-bg.png);
+  background-size: cover;
+  height: 100vh;
+}

@@ -1,33 +1,33 @@
+import {Component} from 'react'
+
 import './index.css'
 import Header from '../Header'
 import TabItem from '../TabItem'
+import Images from '../Images'
+import ScoreCard from '../ScoreCard'
 
-const MainContainer = () => {
-    state = {
-        isTimerRunning: true
-    }
+class MainContainer extends Component {
+  state = {
+    isTimerRunning: true,
+  }
 
-    gameView = () => {
-        return(
-            <div>
-                <img />
-                <TabItem />
-                <Images />
-            </div>
-        )
-    }
+  gameView = () => {
+    ;<div>
+      <TabItem />
+      <Images />
+    </div>
+  }
 
-    render(){
-     return(
-        <div>
-            <Header />
-            <div className="bgContainer">
-                {isTimerRunning ? 
-                this.gameView() :
-                 <ScoreCard />}
-            </div>
+  render() {
+    const {isTimerRunning} = this.state
+    return (
+      <div>
+        <Header />
+        <div className="bgContainer">
+          {isTimerRunning ? this.gameView() : <ScoreCard />}
         </div>
-        )
-}
+      </div>
+    )
+  }
 }
 export default MainContainer

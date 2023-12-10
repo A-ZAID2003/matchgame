@@ -4,7 +4,7 @@ const ScoreCard = props => {
   const {score} = this.props
   return (
     <div>
-      <img className={scoreCardImage} />
+      <img />
       <img
         src="https://assets.ccbp.in/frontend/react-js/match-game-trophy.png"
         alt="trophy"

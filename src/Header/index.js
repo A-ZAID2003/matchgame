@@ -2,6 +2,8 @@ import {Component} from 'react'
 
 import './index.css'
 
+import '../ScoreCard'
+
 class Header extends Component {
   state = {
     score: '0',

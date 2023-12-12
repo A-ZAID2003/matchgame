@@ -1,14 +1,19 @@
+import './index.css'
+
 const Images = props => {
-  const {imagesList} = props
+  const {imagesList, setActiveThumbnail} = props
   const {id, imageUrl, thumbnailUrl, category} = imagesList
+
+  const onClickThumbnail = () => {
+    setActiveThumbnail(id)
+  }
+
   return (
-    <div>
-      <ul>
-        <li>
-          <img src={imageUrl} className="images" />
-        </li>
-      </ul>
-    </div>
+    <li>
+      <button type="button" onClick={onClickThumbnail}>
+        <img src={thumbnailUrl} alt={category} />
+      </button>
+    </li>
   )
 }
 

@@ -2,11 +2,8 @@ import {Component} from 'react'
 
 import './index.css'
 
-import '../ScoreCard'
-
 class Header extends Component {
   state = {
-    score: '0',
     date: new Date(),
   }
 
@@ -25,7 +22,7 @@ class Header extends Component {
   }
 
   render() {
-    const {score} = this.state
+    const {score} = this.props
 
     return (
       <div>

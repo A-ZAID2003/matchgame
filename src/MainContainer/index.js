@@ -267,10 +267,16 @@ class MainContainer extends Component {
     this.setState({activeThumbnailId: id})
   }
 
+  setActiveThumbnail = () => {
+    const {score} = this.state
+    const increaseCount = /**bigImageId**/ === activeThumbnailId
+    {increaseCount ? 
+    this.setState({score: prevState.score + 1})
+    : null}
+  }
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state
-    const {imagesList} = this.props
     const {imageUrl, category} = imagesList
     return (
       <div>

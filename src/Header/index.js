@@ -17,12 +17,13 @@ class Header extends Component {
 
   time = () => {
     this.setState({
-      date: new date(),
+      date: new Date(),
     })
   }
 
   render() {
     const {score} = this.props
+    const {date} = this.state
 
     return (
       <div>

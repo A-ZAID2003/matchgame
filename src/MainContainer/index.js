@@ -270,9 +270,13 @@ class MainContainer extends Component {
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state
-
+    const {imagesList} = this.props
+    const {imageUrl, category} = imagesList
     return (
       <div>
+        <div>
+          <img src={imageUrl} alt={category} />
+        </div>
         <ul>
           {tabsList.map(eachTab => (
             <TabItem

@@ -277,7 +277,7 @@ class MainContainer extends Component {
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state
-    const {imageUrl, category} = imagesList
+    const {imageUrl, category} = imagesList[activeThumbnailId]
     return (
       <div>
         <div>

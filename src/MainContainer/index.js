@@ -263,17 +263,16 @@ class MainContainer extends Component {
     this.setState({activeTabId: tabId})
   }
 
-  setActiveThumbnail = id => {
-    this.setState({activeThumbnailId: id})
-  }
+    setActiveThumbnail = () => {
+    this.setState((prevState) => {
+        const { score, activeThumbnailId } = prevState;
+        const increaseCount = /**bigImageId**/ === activeThumbnailId;
+        return {
+        score: increaseCount ? score + 1 : score,
+        };
+    });
+    };
 
-  setActiveThumbnail = () => {
-    const {score} = this.state
-    const increaseCount = /**bigImageId**/ === activeThumbnailId
-    {increaseCount ? 
-    this.setState({score: prevState.score + 1})
-    : null}
-  }
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state

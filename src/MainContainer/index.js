@@ -273,6 +273,7 @@ class MainContainer extends Component {
     });
     };
 
+    
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state

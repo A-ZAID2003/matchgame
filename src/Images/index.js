@@ -1,8 +1,8 @@
 import './index.css'
 
 const Images = props => {
-  const {imagesList, setActiveThumbnail} = props
-  const {id, thumbnailUrl, category} = imagesList
+  const {imagesDetails, setActiveThumbnail} = props
+  const {id, thumbnailUrl, category} = imagesDetails
 
   const onClickThumbnail = () => {
     setActiveThumbnail(id)

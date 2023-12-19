@@ -274,10 +274,9 @@ class MainContainer extends Component {
   }
 
   gameView = () => {
-    const {activeTabId} = this.state
-    const {activeThumbnailId} = this.state
-    const randomImage = Math.floor(Math.random() * imagesList.length)
-    const {imageUrl, category} = imagesList[activeThumbnailId]
+    const {activeTabId, activeThumbnailId, score} = this.state
+    const randomImageIndex = Math.floor(Math.random() * imagesList.length)
+    const randomImage = imagesList[randomImageIndex]
 
     return (
       <div>

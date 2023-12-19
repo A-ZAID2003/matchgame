@@ -263,25 +263,26 @@ class MainContainer extends Component {
     this.setState({activeTabId: tabId})
   }
 
-    setActiveThumbnail = () => {
-    this.setState((prevState) => {
-        const { score, activeThumbnailId } = prevState;
-        const increaseCount = /**bigImageId**/ === activeThumbnailId;
-        return {
+  setActiveThumbnail = id => {
+    this.setState(prevState => {
+      const {score, activeThumbnailId} = prevState
+      const increaseCount = id === activeThumbnailId
+      return {
         score: increaseCount ? score + 1 : score,
-        };
-    });
-    };
+      }
+    })
+  }
 
-    
   gameView = () => {
     const {activeTabId} = this.state
     const {activeThumbnailId} = this.state
+    const randomImage = Math.floor(Math.random() * imagesList.length)
     const {imageUrl, category} = imagesList[activeThumbnailId]
+
     return (
       <div>
         <div>
-          <img src={imageUrl} alt={category} />
+          <img src={randomImage.imageUrl} alt={randomImage.category} />
         </div>
         <ul>
           {tabsList.map(eachTab => (

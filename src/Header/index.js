@@ -5,6 +5,7 @@ import './index.css'
 class Header extends Component {
   state = {
     date: new Date(),
+    score: 0,
   }
 
   componentDidMount() {
@@ -22,8 +23,7 @@ class Header extends Component {
   }
 
   render() {
-    const {score} = this.props
-    const {date} = this.state
+    const {date, score} = this.state
 
     return (
       <div>

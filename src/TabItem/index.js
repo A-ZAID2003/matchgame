@@ -1,6 +1,6 @@
 const TabItem = props => {
-  const {tabsDetails, setActivetabId} = props
-  const {tabId, displayText} = tabsDetails
+  const {tabDetails, setActivetabId} = props
+  const {tabId, displayText} = tabDetails
 
   const onClickTabId = () => {
     setActivetabId(tabId)

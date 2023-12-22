@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/button-has-type */
 import {Component} from 'react'
 
 import './index.css'
@@ -306,6 +308,13 @@ class MainContainer extends Component {
     )
   }
 
+  const onClickResetButton = () => {
+    const {score} = this.state
+    return(
+        setState({score: 0})
+    )
+  }
+
   scoreCard = () => {
     const {score} = this.state
     return (
@@ -317,11 +326,13 @@ class MainContainer extends Component {
         <p>YOUR SCORE</p>
         <p>{score}</p>
         <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
-            alt="reset"
-          />
-          <p>PLAY AGAIN</p>
+          <button onClick={onclickResetButton} type="button">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
+              alt="reset"
+            />
+            <p>PLAY AGAIN</p>
+          </button>
         </div>
       </div>
     )

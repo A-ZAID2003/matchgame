@@ -4,8 +4,8 @@ import './index.css'
 
 class Header extends Component {
   state = {
-    date: new Date(),
     score: 0,
+    gameTimer: 60,
   }
 
   componentDidMount() {
@@ -17,13 +17,14 @@ class Header extends Component {
   }
 
   time = () => {
-    this.setState({
-      date: new Date(),
-    })
+    const {gameTimer} = this.state
+    if (gameTimer > 0) {
+      this.setState(prevState => ({gameTimer: prevState.gameTimer - 1}))
+    }
   }
 
   render() {
-    const {date, score} = this.state
+    const {gameTimer, score} = this.state
 
     return (
       <div>
@@ -32,12 +33,12 @@ class Header extends Component {
           alt="website logo"
         />
         <div>
-          <p>Score: {score}</p>
+          <p>score: {score}</p>
           <img
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"
           />
-          <p>{date.toLocaleTimeString()} sec</p>
+          <p>{gameTimer} sec</p>
         </div>
       </div>
     )

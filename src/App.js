@@ -1,4 +1,6 @@
+/* eslint-disable import/no-named-as-default */
 import './App.css'
+// eslint-disable-next-line import/no-named-as-default-member
 import MainContainer from './MainContainer'
 
 // These are the lists used in the application. You can move them to any component needed.

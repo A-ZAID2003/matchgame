@@ -308,11 +308,9 @@ class MainContainer extends Component {
     )
   }
 
-  const onClickResetButton = () => {
+  onClickResetButton = () => {
     const {score} = this.state
-    return(
-        setState({score: 0})
-    )
+    setState({score: 0})
   }
 
   scoreCard = () => {
@@ -340,11 +338,14 @@ class MainContainer extends Component {
 
   render() {
     const {isTimerRunning} = this.state
+    const {gameTimer} = this.props
+    const {endGame} = gameTimer === 0
+
     return (
       <div>
         <Header />
         <div className="bgContainer">
-          {isTimerRunning ? this.gameView() : this.scoreCard()}
+          {endGame ? this.scoreCard() : this.gameView()}
         </div>
       </div>
     )

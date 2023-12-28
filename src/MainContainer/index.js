@@ -258,10 +258,11 @@ class MainContainer extends Component {
     isTimerRunning: true,
     activeTabId: tabsList[0].tabId,
     activeThumbnailId: imagesList[0].id,
+    activeBigImage: imagesList[0].imageUrl,
     score: 0,
   }
 
-  setActivetabId = tabId => {
+  setActiveTabId = tabId => {
     this.setState({activeTabId: tabId})
   }
 
@@ -270,7 +271,8 @@ class MainContainer extends Component {
       const {score, activeThumbnailId} = prevState
       const increaseCount = id === activeThumbnailId
       return {
-        score: increaseCount ? score + 1 : score,
+        setState({score: increaseCount ? score + 1 : score})
+        setState({activeBigImage: randomImage}) 
       }
     })
   }
@@ -290,7 +292,7 @@ class MainContainer extends Component {
             <TabItem
               key={eachTab.tabId}
               tabDetails={eachTab}
-              setActiveTabId={this.setActivetabId}
+              setActiveTabId={this.setActiveTabId}
               isActive={activeTabId === eachTab.tabId}
             />
           ))}

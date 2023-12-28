@@ -1,9 +1,9 @@
 const TabItem = props => {
-  const {tabDetails, setActivetabId, isActive} = props
+  const {tabDetails, setActiveTabId, isActive} = props
   const {tabId, displayText} = tabDetails
 
   const onClickTabId = () => {
-    setActivetabId(tabId)
+    setActiveTabId(tabId)
   }
 
   return (

@@ -271,8 +271,8 @@ class MainContainer extends Component {
       const {score, activeThumbnailId} = prevState
       const increaseCount = id === activeThumbnailId
       return {
-        setState({score: increaseCount ? score + 1 : score})
-        setState({activeBigImage: randomImage}) 
+        score: increaseCount ? score + 1 : score,
+        activeBigImage: randomImage.imageUrl,
       }
     })
   }

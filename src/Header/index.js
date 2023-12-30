@@ -33,7 +33,7 @@ class Header extends Component {
           alt="website logo"
         />
         <div>
-          <p>score: {score}</p>
+          <p>Score: {score}</p>
           <img
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"

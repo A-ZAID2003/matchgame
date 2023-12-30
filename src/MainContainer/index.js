@@ -267,9 +267,13 @@ class MainContainer extends Component {
   }
 
   setActiveThumbnail = id => {
+    const {activeBigImage} = this.state
+    console.log(id)
+
+    const findImage = imagesList.find(imageObj => imageObj.id === id)
+    const increaseCount = findImage.imageUrl === activeBigImage
     this.setState(prevState => {
       const {score, activeThumbnailId} = prevState
-      const increaseCount = id === activeThumbnailId
       return {
         score: increaseCount ? score + 1 : score,
         activeBigImage: randomImage.imageUrl,
@@ -277,15 +281,26 @@ class MainContainer extends Component {
     })
   }
 
+  getActiveTabApps = () => {
+    const {activeTabId} = this.state
+    const filteredApps = imagesList.filter(
+      eachSearchedApp => eachSearchedApp.category === activeTabId,
+    )
+
+    return filteredApps
+  }
+
   gameView = () => {
     const {activeTabId, activeThumbnailId} = this.state
     const randomImageIndex = Math.floor(Math.random() * imagesList.length)
     const randomImage = imagesList[randomImageIndex]
 
+    const filteredImages = this.getActiveTabApps()
+
     return (
       <div>
         <div>
-          <img src={randomImage.imageUrl} alt={randomImage.category} />
+          <img src={imagesList[0].imageUrl} alt="match" />
         </div>
         <ul>
           {tabsList.map(eachTab => (
@@ -298,7 +313,7 @@ class MainContainer extends Component {
           ))}
         </ul>
 
-        {imagesList.map(eachImage => (
+        {filteredImages.map(eachImage => (
           <Images
             key={eachImage.id}
             imageDetails={eachImage}

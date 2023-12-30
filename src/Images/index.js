@@ -11,7 +11,7 @@ const Images = props => {
   return (
     <li>
       <button type="button" onClick={onClickThumbnail}>
-        <img src={thumbnailUrl} alt={category} />
+        <img src={thumbnailUrl} alt="thumbnail" />
       </button>
     </li>
   )

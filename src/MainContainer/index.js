@@ -272,6 +272,11 @@ class MainContainer extends Component {
 
     const findImage = imagesList.find(imageObj => imageObj.id === id)
     const increaseCount = findImage.imageUrl === activeBigImage
+
+    const randomImageIndex = Math.floor(Math.random() * imagesList.length)
+    const randomImage = imagesList[randomImageIndex]
+    console.log(randomImage)
+
     this.setState(prevState => {
       const {score, activeThumbnailId} = prevState
       return {
@@ -291,16 +296,14 @@ class MainContainer extends Component {
   }
 
   gameView = () => {
-    const {activeTabId, activeThumbnailId} = this.state
-    const randomImageIndex = Math.floor(Math.random() * imagesList.length)
-    const randomImage = imagesList[randomImageIndex]
+    const {activeTabId, activeThumbnailId, activeBigImage} = this.state
 
     const filteredImages = this.getActiveTabApps()
 
     return (
       <div>
         <div>
-          <img src={imagesList[0].imageUrl} alt="match" />
+          <img src={activeBigImage} alt="match" />
         </div>
         <ul>
           {tabsList.map(eachTab => (
@@ -326,12 +329,12 @@ class MainContainer extends Component {
   }
 
   onClickResetButton = () => {
-    const {score} = this.state
-    setState({score: 0})
+    const {Score} = this.state
+    this.setState({Score: 0})
   }
 
   scoreCard = () => {
-    const {score} = this.state
+    const {Score} = this.state
     return (
       <div>
         <img
@@ -339,7 +342,7 @@ class MainContainer extends Component {
           alt="trophy"
         />
         <p>YOUR SCORE</p>
-        <p>{score}</p>
+        <p>{Score}</p>
         <div>
           <button onClick={onclickResetButton} type="button">
             <img
@@ -359,13 +362,14 @@ class MainContainer extends Component {
     const {endGame} = gameTimer === 0
 
     return (
-      <div>
+      <>
         <Header />
         <div className="bgContainer">
           {endGame ? this.scoreCard() : this.gameView()}
         </div>
-      </div>
+      </>
     )
   }
 }
+
 export default MainContainer

@@ -4,7 +4,7 @@ import './index.css'
 
 class Header extends Component {
   state = {
-    score: 0,
+    Score: 0,
     gameTimer: 60,
   }
 
@@ -24,7 +24,7 @@ class Header extends Component {
   }
 
   render() {
-    const {gameTimer, score} = this.state
+    const {gameTimer, Score} = this.state
 
     return (
       <div>
@@ -33,7 +33,7 @@ class Header extends Component {
           alt="website logo"
         />
         <div>
-          <p>Score: {score}</p>
+          <p>Score: {Score}</p>
           <img
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"

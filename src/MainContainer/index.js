@@ -273,9 +273,9 @@ class MainContainer extends Component {
     const findImage = imagesList.find(imageObj => imageObj.id === id)
     const increaseCount = findImage.imageUrl === activeBigImage
 
-    const randomImageIndex = Math.floor(Math.random() * imagesList.length)
-    const randomImage = imagesList[randomImageIndex]
-    console.log(randomImage)
+    // const randomImageIndex = Math.floor(Math.random() * imagesList.length)
+    // const randomImage = imagesList[randomImageIndex]
+    // console.log(randomImage)
 
     this.setState(prevState => {
       const {score, activeThumbnailId} = prevState
@@ -329,12 +329,12 @@ class MainContainer extends Component {
   }
 
   onClickResetButton = () => {
-    const {Score} = this.state
-    this.setState({Score: 0})
+    const {score} = this.state
+    this.setState({score: 0})
   }
 
   scoreCard = () => {
-    const {Score} = this.state
+    const {score} = this.state
     return (
       <div>
         <img
@@ -342,7 +342,7 @@ class MainContainer extends Component {
           alt="trophy"
         />
         <p>YOUR SCORE</p>
-        <p>{Score}</p>
+        <p>{score}</p>
         <div>
           <button onClick={onclickResetButton} type="button">
             <img
@@ -359,7 +359,7 @@ class MainContainer extends Component {
   render() {
     const {isTimerRunning} = this.state
     const {gameTimer} = this.props
-    const {endGame} = gameTimer === 0
+    const endGame = gameTimer === 0
 
     return (
       <>

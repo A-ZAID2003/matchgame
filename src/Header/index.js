@@ -1,12 +1,7 @@
-import {Component} from 'react'
-
 import './index.css'
 
-class Header extends Component {
-  state = {
-    Score: 0,
-    gameTimer: 60,
-  }
+const Header = props => {
+  const {gameTimer, score} = this.props
 
   componentDidMount() {
     this.timerId = setInterval(this.time, 1000)
@@ -17,14 +12,11 @@ class Header extends Component {
   }
 
   time = () => {
-    const {gameTimer} = this.state
+    const {gameTimer} = this.props
     if (gameTimer > 0) {
       this.setState(prevState => ({gameTimer: prevState.gameTimer - 1}))
     }
   }
-
-  render() {
-    const {gameTimer, Score} = this.state
 
     return (
       <div>
@@ -33,7 +25,7 @@ class Header extends Component {
           alt="website logo"
         />
         <div>
-          <p>Score: {Score}</p>
+          <p>Score: {score}</p>
           <img
             src="https://assets.ccbp.in/frontend/react-js/match-game-timer-img.png"
             alt="timer"
@@ -43,6 +35,6 @@ class Header extends Component {
       </div>
     )
   }
-}
+
 
 export default Header

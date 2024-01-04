@@ -356,6 +356,21 @@ class MainContainer extends Component {
     )
   }
 
+  componentDidMount() {
+    this.timerId = setInterval(this.time, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId)
+  }
+
+  time = () => {
+    const {gameTimer} = this.props
+    if (gameTimer > 0) {
+      this.setState(prevState => ({gameTimer: prevState.gameTimer - 1}))
+    }
+  }
+
   render() {
     const {isTimerRunning} = this.state
     const {gameTimer} = this.props

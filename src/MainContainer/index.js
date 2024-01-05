@@ -262,37 +262,12 @@ class MainContainer extends Component {
     score: 0,
   }
 
-  setActiveTabId = tabId => {
-    this.setState({activeTabId: tabId})
+  componentDidMount() {
+    this.timerId = setInterval(this.time, 1000)
   }
 
-  setActiveThumbnail = id => {
-    const {activeBigImage} = this.state
-    console.log(id)
-
-    const findImage = imagesList.find(imageObj => imageObj.id === id)
-    const increaseCount = findImage.imageUrl === activeBigImage
-
-    // const randomImageIndex = Math.floor(Math.random() * imagesList.length)
-    // const randomImage = imagesList[randomImageIndex]
-    // console.log(randomImage)
-
-    this.setState(prevState => {
-      const {score, activeThumbnailId} = prevState
-      return {
-        score: increaseCount ? score + 1 : score,
-        activeBigImage: randomImage.imageUrl,
-      }
-    })
-  }
-
-  getActiveTabApps = () => {
-    const {activeTabId} = this.state
-    const filteredApps = imagesList.filter(
-      eachSearchedApp => eachSearchedApp.category === activeTabId,
-    )
-
-    return filteredApps
+  componentWillUnmount() {
+    clearInterval(this.timerId)
   }
 
   gameView = () => {
@@ -356,12 +331,37 @@ class MainContainer extends Component {
     )
   }
 
-  componentDidMount() {
-    this.timerId = setInterval(this.time, 1000)
+  getActiveTabApps = () => {
+    const {activeTabId} = this.state
+    const filteredApps = imagesList.filter(
+      eachSearchedApp => eachSearchedApp.category === activeTabId,
+    )
+
+    return filteredApps
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timerId)
+  setActiveTabId = tabId => {
+    this.setState({activeTabId: tabId})
+  }
+
+  setActiveThumbnail = id => {
+    const {activeBigImage} = this.state
+    console.log(id)
+
+    const findImage = imagesList.find(imageObj => imageObj.id === id)
+    const increaseCount = findImage.imageUrl === activeBigImage
+
+    // const randomImageIndex = Math.floor(Math.random() * imagesList.length)
+    // const randomImage = imagesList[randomImageIndex]
+    // console.log(randomImage)
+
+    this.setState(prevState => {
+      const {score, activeThumbnailId} = prevState
+      return {
+        score: increaseCount ? score + 1 : score,
+        activeBigImage: randomImage.imageUrl,
+      }
+    })
   }
 
   time = () => {

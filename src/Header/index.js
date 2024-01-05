@@ -1,7 +1,7 @@
 import './index.css'
 
 const Header = props => {
-  const {gameTimer, score} = this.props
+  const {gameTimer, score} = props
 
   return (
     <div>

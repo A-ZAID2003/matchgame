@@ -351,9 +351,9 @@ class MainContainer extends Component {
     const findImage = imagesList.find(imageObj => imageObj.id === id)
     const increaseCount = findImage.imageUrl === activeBigImage
 
-    // const randomImageIndex = Math.floor(Math.random() * imagesList.length)
-    // const randomImage = imagesList[randomImageIndex]
-    // console.log(randomImage)
+    const randomImageIndex = Math.floor(Math.random() * imagesList.length)
+    const randomImage = imagesList[randomImageIndex]
+    console.log(randomImage)
 
     this.setState(prevState => {
       const {score, activeThumbnailId} = prevState
@@ -378,7 +378,7 @@ class MainContainer extends Component {
 
     return (
       <>
-        <Header />
+        <Header score={score} />
         <div className="bgContainer">
           {endGame ? this.scoreCard() : this.gameView()}
         </div>

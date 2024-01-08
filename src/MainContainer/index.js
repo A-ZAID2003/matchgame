@@ -372,7 +372,7 @@ class MainContainer extends Component {
   }
 
   render() {
-    const {isTimerRunning} = this.state
+    const {isTimerRunning, score} = this.state
     const {gameTimer} = this.props
     const endGame = gameTimer === 0
 

@@ -260,6 +260,7 @@ class MainContainer extends Component {
     activeThumbnailId: imagesList[0].id,
     activeBigImage: imagesList[0].imageUrl,
     score: 0,
+    gameTimer: 60,
   }
 
   componentDidMount() {
@@ -304,8 +305,11 @@ class MainContainer extends Component {
   }
 
   onClickResetButton = () => {
-    const {score} = this.state
-    this.setState({score: 0})
+    const {score, gameTimer} = this.state
+    this.setState({
+      score: 0,
+      gameTimer: 60,
+    })
   }
 
   scoreCard = () => {
@@ -319,7 +323,7 @@ class MainContainer extends Component {
         <p>YOUR SCORE</p>
         <p>{score}</p>
         <div>
-          <button onClick={onclickResetButton} type="button">
+          <button onClick={this.onclickResetButton} type="button">
             <img
               src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
               alt="reset"
@@ -365,7 +369,7 @@ class MainContainer extends Component {
   }
 
   time = () => {
-    const {gameTimer} = this.props
+    const {gameTimer} = this.state
     if (gameTimer > 0) {
       this.setState(prevState => ({gameTimer: prevState.gameTimer - 1}))
     }
@@ -373,12 +377,12 @@ class MainContainer extends Component {
 
   render() {
     const {isTimerRunning, score} = this.state
-    const {gameTimer} = this.props
+    const {gameTimer} = this.state
     const endGame = gameTimer === 0
 
     return (
       <>
-        <Header score={score} />
+        <Header score={score} gameTimer={gameTimer} />
         <div className="bgContainer">
           {endGame ? this.scoreCard() : this.gameView()}
         </div>
